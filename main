@@ -1,0 +1,131 @@
+# Importing fuctions
+from turtle import *
+from random import *
+import time
+
+FONT = ('Monaco', 25, 'bold')
+
+turtle = Turtle()
+
+# Setting up the Screen
+setup(800, 500)
+title('The Turtle Race by Group 48')
+bgcolor('honeydew')
+speed(0.5)
+
+# Creating the Heading
+penup()
+goto(-140, 205)
+color('black')
+write('The Turtle Race 🐢', font=(FONT))
+
+# Drawing the Track
+goto(-350, 200)
+pendown()
+color('gray')
+begin_fill()
+for i in range(2):
+    forward(700)
+    right(90)
+    forward(400)
+    right(90)
+end_fill()
+
+# Drawing the Finish Line
+gap_size = 20
+shape('square')
+penup()
+
+# Drawing the white squares in Row 1
+color('white')
+for i in range(10):
+    goto(250, (170 - (i * gap_size * 2)))
+    stamp()
+
+# Drawing the white squares in Row 2
+for i in range(10):
+    goto(250 + gap_size, ((210 - gap_size) - (i * gap_size * 2)))
+    stamp()
+
+# Drawing the black squares in Row 1
+color('black')
+for i in range(10):
+    goto(250, (190 - (i * gap_size * 2)))
+    stamp()
+
+# Drawing the black squares in Row 2
+for i in range(10):
+    goto(250 + gap_size, ((190 - gap_size) - (i * gap_size * 2)))
+    stamp()
+
+# Drawing Turtle 1 - Yellow
+yellow_turtle = Turtle()
+yellow_turtle.color('yellow')
+yellow_turtle.shape('turtle')
+yellow_turtle.shapesize(1.5)
+yellow_turtle.penup()
+yellow_turtle.goto(-300, 150)
+yellow_turtle.pendown()
+    
+# Drawing Turtle 2 - Purple
+purple_turtle = Turtle()
+purple_turtle.color('darkviolet')
+purple_turtle.shape('turtle')
+purple_turtle.shapesize(1.5)
+purple_turtle.penup()
+purple_turtle.goto(-300, 0)
+purple_turtle.pendown()    
+    
+# Drawing Turtle 3 - Green
+green_turtle = Turtle()
+green_turtle.color('chartreuse')
+green_turtle.shape('turtle')
+green_turtle.shapesize(1.5)
+green_turtle.penup()
+green_turtle.goto(-300, -150)
+green_turtle.pendown()    
+
+# Pausing before the racing
+time.sleep(0.7)
+
+# Moving the turtles
+while yellow_turtle.xcor() <= 230 and purple_turtle.xcor() <= 230 and green_turtle.xcor() <= 230:
+        yellow_turtle.forward(randint(1, 20))
+        purple_turtle.forward(randint(1, 20))
+        green_turtle.forward(randint(1, 20))
+
+# Celebrating the winner
+
+# Yellow turtle
+if yellow_turtle.xcor() > purple_turtle.xcor() and green_turtle.xcor():
+        for i in range(36):
+            yellow_turtle.right(10)
+            yellow_turtle.shapesize(3)
+            penup()
+            goto(-300, 0)
+            color('yellow')
+            write('Yellow turtle is the winner 🎉', font=(FONT))
+
+# Purple turtle
+elif purple_turtle.xcor() > yellow_turtle.xcor() and green_turtle.xcor():
+        for i in range(36):
+            purple_turtle.right(10)
+            purple_turtle.shapesize(3)
+            penup()
+            goto(-300, 0)
+            color('darkviolet')
+            write('Purple turtle is the winner 🎉', font=(FONT))
+
+# Green turtle
+else:
+    green_turtle.xcor() > yellow_turtle.xcor() and purple_turtle.xcor()
+    for i in range(36):
+        green_turtle.right(10)
+        green_turtle.shapesize(3)
+        penup()
+        goto(-300, 0)
+        color('chartreuse')
+        write('Green turtle is the winner 🎉', font=(FONT))
+
+
+            
